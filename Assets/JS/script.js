@@ -1,5 +1,4 @@
 // global variables//
-
 let count;
 let numQuestions = questions.length;
 let currentQuestion;
@@ -54,19 +53,7 @@ function initialize() {
     let findTopScore = localStorage.getItem("userScores");
     let parsedScore = JSON.parse(findTopScore);
     console.log(parsedScore);
-    let max = 0;
-    let user;
-
-    // finding top score via for loop //
-    for (let i = 0; i < parsedScore.length; i++) {
-        if (max < parsedScore[i].score) {
-            max = parsedScore[i].score;
-            user = parsedScore[i].username;
-        }
-    }
-
     // hiding these elements on game start //
-
     questionDiv.classList.add("hide");
     formDiv.classList.add("hide");
     highScoreModal.classList.add("hide");
@@ -74,7 +61,6 @@ function initialize() {
 }
 
 //declaring above function to start game
-
 initialize();
 
 function newGame() {
@@ -82,7 +68,7 @@ function newGame() {
     gameScore = 0;
     currentQuestion = 0;
     userAnswers = [];
-    count = 75;
+    count = 60;
     timer();
     time.textContent = count;
     welcomeDiv.classList.add("hide");
@@ -113,6 +99,7 @@ function check() {
     }
 } 
 
+// clearing question and choice content prior to loading our new question and choices //
 function loadQuestion() {
     qTitle.textContent = '';
     qChoices.textContent = '';
@@ -134,7 +121,9 @@ function loadQuestion() {
 function next(event) {
     if(event.target.innerText === questions[currentQuestion].answer) {
         gameScore += 10;
-    }
+    } else if(event.target.innerText !== questions[currentQuestion].answer) {
+        count -= 10;
+    ;}
 
     currentQuestion++;
     check();

@@ -1,19 +1,25 @@
 * {
     margin: 0;
     padding: 0;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family: 'Chakra Petch', sans-serif;
 }
 
 :root {
     --mainColor: rgb(53, 66, 126);
-    --accentColor: red;
-    --buttonColor: rgb(58, 122, 45);
     --buttonHoverColor: rgb(181, 255, 185);
     --borderColor: white;
 }
 
 body {
-  background: #fff;
+  background: white;
+}
+li {
+    font-size: 1.5rem;
+    border: 2px solid white;
+    background-color: white;
+    color: white;
+    border-radius: 3rem;
+    border-color: white;
 }
 
 .wrapper {
@@ -33,6 +39,12 @@ body {
 
 .nav-item {
     margin: 10px 20px;
+    color: white;
+}
+
+.leaderText {
+    text-decoration: underline;
+    font-size: 2rem;
 }
 
 .title-block {
@@ -78,12 +90,14 @@ body {
 
 .instruction-text {
     margin-bottom: 20px;
+    text-decoration: underline;
 }
 
-.welcome-container > p, h4 {
+.welcome-container p {
     margin: 5px 0;
-    line-height: 1.6rem;
-    font-size: 1rem;
+    padding: 2rem;
+    line-height: 2.5rem;
+    font-size: 2rem;
 }
 
 #start {
@@ -91,14 +105,15 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     padding: 1rem 2rem;
     margin: 15px 10px;
-    background: var(--buttonColor);
+    background: white;
+    color: var(--mainColor);
     border-radius: 3rem;
     border-color: white;
 }
 
 #start:hover {
-    background: var(--buttonHoverColor) ;
-    color: #fff;
+    background: black ;
+    color: var(--buttonHoverColor);
     cursor: pointer;
 }
 
@@ -126,10 +141,15 @@ body {
     border-radius: 2px solid var(--borderColor);
 }
 
-.questions-container, ul, li:hover {
+.questions-container, ul {
     background-color:var(--mainColor);
     color: #fff;
     font-size: 1rem;
+}
+
+.questions-container li:hover {
+    background: white;
+    color: var(--mainColor)
 }
 
 .choice-lbl {
@@ -153,7 +173,7 @@ body {
 
 #user-score {
     font-size: 3rem;
-    color: var(--buttonColor);
+    color: white;
 }
 
 .label {
@@ -198,7 +218,7 @@ body {
 .modal-content {
     min-height: 50%;
     width: 60%;
-    background-color: antiquewhite;
+    background-color: var(--mainColor);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -221,18 +241,13 @@ body {
 
 .modal-header-title {
     margin: 10px 10px;
+    color: white;
     font-size: 3rem;
-}
-
-.accent {
-    color: var(--accentColor);
 }
 
 .modal-body {
     background: var(--mainColor);
     color: #fff;
-    /* height: 100%; */
-    flex-grow: 1;
 }
 
 .user-scores {
@@ -241,19 +256,11 @@ body {
     padding-top: 1rem;
 }
 
-.user-scores > :first-child {
-    font-size: 2.8rem;
-    font-weight: 600;
-    color: var(--accentColor);
-}
-
-.user-scores > :last-child {
-    margin-bottom: 1rem;
-}
-
 .score-item {
     margin-top: 7px;
-    color: lightslategray;
+    color: var(--mainColor);
+    font-size: 2.5rem;
+    font-weight: 700;
 }
 
 .modal-footer {
@@ -269,18 +276,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     padding: 1rem 2rem;
     margin: 15px 10px;
-    background: var(--mainColor);
-    border: 0.3em solid rgb(81, 211, 243);
+    background: white;
+    color:var(--mainColor);
+    border: 0.3em solid var(--mainColor);
     border-radius: 3rem;
-
-    animation-name: modalclose;
-    animation-duration: 1s;
-}
-
-.modal-btn:hover {
-  background: var(--mainColor);
-  color: #fff;
-  border: 0.3em solid var(--borderColor);
 }
 
 .hide {
