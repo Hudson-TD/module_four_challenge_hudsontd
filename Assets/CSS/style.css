@@ -236,13 +236,14 @@ li {
     position: absolute;
     top: 0;
     right: 15px;
-    font-size: 1.8rem;
+    font-size: 4.5rem;
 }
 
 .modal-header-title {
+    text-decoration: underline;
     margin: 10px 10px;
     color: white;
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 .modal-body {
@@ -253,7 +254,7 @@ li {
 .user-scores {
     list-style: none;
     font-size: 2rem;
-    padding-top: 1rem;
+    padding-top: 2rem;
 }
 
 .score-item {
@@ -272,13 +273,13 @@ li {
 }
 
 .modal-btn {
-    font-size: 0.7rem;
+    font-size: 1rem;
     font-family: Arial, Helvetica, sans-serif;
     padding: 1rem 2rem;
     margin: 15px 10px;
     background: white;
     color:var(--mainColor);
-    border: 0.3em solid var(--mainColor);
+    border: 0.5rem solid var(--mainColor);
     border-radius: 3rem;
 }
 

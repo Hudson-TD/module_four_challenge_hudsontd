@@ -1,4 +1,4 @@
-// global variables//
+// Global variables //
 let count;
 let numQuestions = questions.length;
 let currentQuestion;
@@ -31,10 +31,10 @@ let username = document.getElementById("username");
 let userSubmit = document.getElementById("userSubmit");
 userSubmit.addEventListener("click", saveUser);
 
-// Modal Logic
+// Modal Logic //
 let closeModal = document.querySelector(".close")
 closeModal.addEventListener("click", clearModal);
-// Close Modal when clicked outside of modal-container
+// Close Modal when clicked outside of modal-container //
 window.addEventListener("click", outsideModal);
 
 let exit = document.querySelector(".exit");
@@ -53,14 +53,14 @@ function initialize() {
     let findTopScore = localStorage.getItem("userScores");
     let parsedScore = JSON.parse(findTopScore);
     console.log(parsedScore);
-    // hiding these elements on game start //
+    // Hiding these elements on game start //
     questionDiv.classList.add("hide");
     formDiv.classList.add("hide");
     highScoreModal.classList.add("hide");
 
 }
 
-//declaring above function to start game
+//Declaring above function to start game //
 initialize();
 
 function newGame() {
@@ -68,7 +68,7 @@ function newGame() {
     gameScore = 0;
     currentQuestion = 0;
     userAnswers = [];
-    count = 60;
+    count = 60; // Setting timer starting value //
     timer();
     time.textContent = count;
     welcomeDiv.classList.add("hide");
@@ -104,6 +104,7 @@ function loadQuestion() {
     qTitle.textContent = '';
     qChoices.textContent = '';
 
+    // For loop to cycle through questions array and set question and answer choices //
     for (let i = 0; i < questions[currentQuestion].choices.length; i++) {
         qTitle.textContent = questions[currentQuestion].title;
 
@@ -118,6 +119,7 @@ function loadQuestion() {
     }
 }
 
+// Checking choice selection with the defined answer, if correct score increases if wrong penalized 10 sections, and moving to next question //
 function next(event) {
     if(event.target.innerText === questions[currentQuestion].answer) {
         gameScore += 10;
@@ -129,10 +131,11 @@ function next(event) {
     check();
 }
 
+// Ends game and presents the form to submit a moncker for the player's highscore entry //
 function gameOver() {
     gameStop = true;
     clearInterval(timerInterval);
-    time.textContent = "- -";
+    time.textContent = "--";
     gameScore += count;
     questionDiv.classList.add("hide");
     score.textContent = gameScore;
@@ -140,6 +143,7 @@ function gameOver() {
     username.value = '';
 }
 
+// Saving data to local storage which applies to the highscore leaderboard //
 function saveUser(event) {
     event.preventDefault();
     if (username.value == '') {
@@ -171,6 +175,8 @@ function saveUser(event) {
     showLeader();
 }
 
+// Pulling data from local storage to present a highscore leaderboard //
+
 function showLeader() {
     formDiv.classList.add("hide");
     questionDiv.classList.add("hide");
@@ -186,6 +192,8 @@ function showLeader() {
         leaderboard.appendChild(newScore);
     }
 }
+
+// Supporting functions for the highscore modal //
 
 function sortScores(scoreObj) {
     scoreObj.sort( function(a, b) {
@@ -203,6 +211,7 @@ function clearModal() {
     welcomeDiv.classList.remove("hide");
 }
 
+// Clicking outside of the highscore modal will also hide the element, illusion of closing it //
 function outsideModal(event) {
     if (event.target == highScoreModal) {
         highScoreModal.classList.add("hide");
